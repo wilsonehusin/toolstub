@@ -34,12 +34,13 @@ function install_tool() {
 
 # 3. Run!
 function run() {
+  # shellcheck disable=SC2068 # Intentionally splat args from user / console.
   go tool -modfile="${modfile}" "${TOOLIMPORT}" $@
 }
 
 function main() {
   DEBUG_TOOLSTUB=${DEBUG_TOOLSTUB:-""}
-  if [[ ! -z "${DEBUG_TOOLSTUB}" ]]; then
+  if [[ -n "${DEBUG_TOOLSTUB}" ]]; then
     yellow=$(tput setaf 3)
     magenta=$(tput setaf 5)
     cyan=$(tput setaf 6)
@@ -51,7 +52,9 @@ function main() {
   
   gomod
   install_tool
+  # shellcheck disable=SC2068 # Intentionally splat args from user / console.
   run $@
 }
 
+# shellcheck disable=SC2068 # Intentionally splat args from user / console.
 main $@
