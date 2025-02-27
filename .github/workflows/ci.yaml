@@ -21,7 +21,7 @@ jobs:
           go-version: stable
           cache-dependency-path: |
              go.sum
-             _tools/*.go.sum
+             _tools/golangci-lint.go.sum
       - name: Install golangci-lint
         run: |
           bin/golangci-lint version
@@ -39,7 +39,6 @@ jobs:
           go-version: stable
           cache-dependency-path: |
              go.sum
-             _tools/*.go.sum
       - name: Install dependencies
         run: go mod tidy
       - name: Build
