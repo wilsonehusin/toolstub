@@ -15,7 +15,7 @@ builds:
       - darwin
 
 archives:
-  - format: tar.gz
+  - formats: [ tar.gz ]
     # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
       {{ .ProjectName }}_
@@ -32,3 +32,4 @@ changelog:
       - "^docs:"
       - "^test:"
       - "^ci:"
+      - "^tool:"
