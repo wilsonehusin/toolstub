@@ -20,6 +20,9 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
+          cache-dependency-path: |
+             go.sum
+             _tools/*.go.sum
       - name: Install GoReleaser
         run: |
           bin/goreleaser --version
