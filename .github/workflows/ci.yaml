@@ -1,0 +1,44 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache-dependency-path: |
+             go.sum
+             _tools/*.go.sum
+      - name: Install golangci-lint
+        run: |
+          bin/golangci-lint version
+      - name: Lint
+        run: |
+          bin/golangci-lint run --out-format=colored-line-number
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: stable
+          cache-dependency-path: |
+             go.sum
+             _tools/*.go.sum
+      - name: Build
+        run: go build -v ./...
