@@ -63,7 +63,7 @@ func run() error {
 
 		f, err := os.OpenFile(fp, os.O_RDWR|os.O_CREATE, 0755)
 		if err != nil {
-			return fmt.Errorf("opening file %q to write: %w", fp)
+			return fmt.Errorf("opening file %q to write: %w", fp, err)
 		}
 		defer f.Close()
 
