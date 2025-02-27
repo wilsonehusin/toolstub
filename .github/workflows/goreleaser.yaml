@@ -20,12 +20,8 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: stable
-      - name: Build and Release
-        uses: goreleaser/goreleaser-action@v6
-        if: "startsWith(github.ref, 'refs/tags/v')"
-        with:
-          distribution: goreleaser
-          version: "~> v2"
-          args: release --clean
+      - name: Build and release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          bin/goreleaser release --clean
