@@ -9,7 +9,7 @@ set -euo pipefail
 
 default_exe="{{ .Exe }}"
 default_toolimport="{{ .ToolImport }}"
-default_dir="$( dirname -- "${BASH_SOURCE[0]}" )/{{ .ModDir }}"
+default_dir=$(dirname -- "${BASH_SOURCE[0]}")/{{ .ModDir }}
 
 EXE=${EXE:-${default_exe}}
 TOOLIMPORT=${TOOLIMPORT:-${default_toolimport}}
