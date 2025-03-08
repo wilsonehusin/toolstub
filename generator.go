@@ -4,7 +4,9 @@ import (
 	_ "embed"
 	"fmt"
 	"io"
+	"os"
 	"runtime/debug"
+	"strings"
 	"text/template"
 )
 
@@ -52,4 +54,11 @@ func (t *Generator) ToolstubInfo() string {
 	}
 
 	return fmt.Sprintf("%s@%s", bi.Path, version)
+}
+
+func (t *Generator) ToolstubCmd() string {
+	// This is gross and should probably be an attribute set by caller.
+	args := os.Args[1:len(os.Args)]
+	args = append([]string{"toolstub"}, args...)
+	return strings.Join(args, " ")
 }

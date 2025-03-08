@@ -18,7 +18,7 @@ var (
 
 func init() {
 	flag.Usage = func() {
-		fmt.Fprintf(flag.CommandLine.Output(), "%s: create shorthand executable for build-time dependencies / third-party Go tools\n", os.Args[0])
+		fmt.Fprintf(flag.CommandLine.Output(), "%s: create shorthand executable for build-time dependencies / third-party Go tools\n", "toolstub")
 		fmt.Fprintf(flag.CommandLine.Output(), "Usage:\n")
 		flag.PrintDefaults()
 	}
