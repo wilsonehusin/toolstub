@@ -6,6 +6,7 @@ import (
 	"io"
 	"os"
 	"path"
+	"strings"
 )
 
 var (
@@ -39,7 +40,7 @@ func main() {
 	}
 
 	if optExe == "" {
-		optExe = path.Base(optToolImport)
+		optExe, _, _ = strings.Cut(path.Base(optToolImport), "@")
 	}
 
 	if err := run(); err != nil {

@@ -20,6 +20,14 @@ type Generator struct {
 	ModDir     string
 }
 
+func (g *Generator) GoToolImportPath() string {
+	value, version, found := strings.Cut(g.ToolImport, "@")
+	if found {
+		fmt.Fprintf(os.Stderr, "[WARN] toolstub does not currently support version directive, ignoring version directive %q\n", "@"+version)
+	}
+	return value
+}
+
 func (g *Generator) WriteTo(w io.Writer) (int64, error) {
 	// Is there a point to conform with io.WriterTo interface?
 	// Kinda silly since template.(*Template).Execute doesn't return the written size...

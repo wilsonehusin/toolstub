@@ -8,7 +8,7 @@ set -euo pipefail
 # 0. Set variables and fallback to defaults.
 
 default_exe="{{ .Exe }}"
-default_toolimport="{{ .ToolImport }}"
+default_toolimport="{{ .GoToolImportPath }}"
 default_dir=$(dirname -- "${BASH_SOURCE[0]}")/{{ .ModDir }}
 
 EXE=${EXE:-${default_exe}}
