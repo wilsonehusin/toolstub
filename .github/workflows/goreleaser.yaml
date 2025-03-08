@@ -22,7 +22,7 @@ jobs:
           go-version: stable
           cache-dependency-path: |
              go.sum
-             _tools/goreleaser.go.sum
+             bin/_tools/goreleaser.go.sum
       - name: Install GoReleaser
         run: |
           bin/goreleaser --version

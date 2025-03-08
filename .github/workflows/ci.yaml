@@ -21,7 +21,7 @@ jobs:
           go-version: stable
           cache-dependency-path: |
              go.sum
-             _tools/golangci-lint.go.sum
+             bin/_tools/golangci-lint.go.sum
       - name: Install golangci-lint
         run: |
           bin/golangci-lint version
