@@ -11,7 +11,7 @@ Generate executable alias for Go build-time dependencies / third-party `go tool`
 ## Usage
 
 ```shellsession
-# toolstub github.com/golangci/golangci-lint/cmd/golangci-lint
+# toolstub -tool github.com/golangci/golangci-lint/cmd/golangci-lint
 ```
 
 And the generated output will be [a bash script in `bin/golangci-lint` wrapping various `go` commands](bin/golangci-lint).
